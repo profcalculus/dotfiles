@@ -1,0 +1,9 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =7
+let g:netrw_dirhist_1='scp://monctl.devc:svn/katobs/katobs/'
+let g:netrw_dirhist_2='scp://monctl.devc/svn/katobs/katobs/'
+let g:netrw_dirhist_3='scp://monctl.devc/svn/katobs/katobs/subarray_managers/'
+let g:netrw_dirhist_4='scp://monctl.devc/svn/katobs/'
+let g:netrw_dirhist_5='scp://monctl.devc/svn/katcorelib/katcorelib/'
+let g:netrw_dirhist_6='scp://monctl.devc/svn/katcp/katcp/'
+let g:netrw_dirhist_7='scp://monctl.devc/katcp/katcp/'

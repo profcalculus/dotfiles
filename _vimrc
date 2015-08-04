@@ -15,6 +15,7 @@ set nocompatible
 " When you want to paste large blocks of code into vim, press F2 before you
 " paste. At the bottom you should see ``-- INSERT (paste) --``.
 set pastetoggle=<F2>
+set clipboard=unnamed
 
 " Rebind <Leader> key
 let mapleader = ","
@@ -102,10 +103,10 @@ syntax on
 
 " Showing line numbers and length
 set number  " show line numbers
-set tw=79   " width of document (used by gd)
+set tw=90   " width of document (used by gd)
 set wrap  " wrap long lines on load
 if version >= 703
-    set colorcolumn=80
+    set colorcolumn=90
 endif
 highlight ColorColumn ctermbg=233
 
@@ -114,8 +115,8 @@ highlight ColorColumn ctermbg=233
 set history=500
 set undolevels=500
 
-" Don't beep
-set visualbell
+" Don't beep or flash
+set novisualbell
 set noerrorbells
 
 
@@ -147,14 +148,15 @@ nmap Q gqap
 " Enable mouse scrolling
 set mouse=a
 
-
+" Recursive search up the directory tree for a tags file (note the ;)
+set tags=tags;
 " ============================================================================
 " Python IDE Setup
 " ============================================================================
 
 
-"" inoremap <silent><C-j> <C-R>=OmniPopup('j')<cr>
-"" inoremap <silent><C-k> <C-R>=OmniPopup('k')<cr>
+inoremap <silent><C-j> <C-R>=OmniPopup('j')<cr>
+inoremap <silent><C-k> <C-R>=OmniPopup('k')<cr>
 
 
 " Python folding
@@ -176,27 +178,28 @@ Plugin 'gmarik/Vundle.vim'
 " My Vundle Plugins
 " ==========================================================
 " Jedi Vim
-"Plugin 'davidhalter/jedi-vim'
-"autocmd FileType python setlocal completeopt-=preview "disable docstring popup
-"let g:jedi#usages_command = "<leader>z"
-"let g:jedi#popup_on_dot = 0
-"let g:jedi#popup_select_first = 0
+Plugin 'davidhalter/jedi-vim'
+autocmd FileType python setlocal completeopt-=preview "disable docstring popup
+let g:jedi#usages_command = "<leader>z"
+let g:jedi#popup_on_dot = 0
+let g:jedi#popup_select_first = 0
 "" Better navigating through omnicomplete option list
 "" See http://stackoverflow.com/questions/2170023/how-to-map-keys-for-popup-menu-in-vim
-"set completeopt=longest,menuone
-"function! OmniPopup(action)
-"    if pumvisible()
-"        if a:action == 'j'
-"            return "\<C-N>"
-"        elseif a:action == 'k'
-"            return "\<C-P>"
-"        endif
-"    endif
-"    return a:action
-"endfunction
+set completeopt=longest,menuone
+function! OmniPopup(action)
+    if pumvisible()
+        if a:action == 'j'
+            return "\<C-N>"
+        elseif a:action == 'k'
+            return "\<C-P>"
+        endif
+    endif
+    return a:action
+endfunction
 
 " Powerline
-Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+"" Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+Plugin 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
 set laststatus=2 " Always display the statusline in all windows
 set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusline)
 " Fix terminal timeout when pressing escape (i.e. getting rid of delay after ESC
@@ -209,6 +212,9 @@ if ! has('gui_running')
         au InsertLeave * set timeoutlen=1000
     augroup END
 endif
+
+" ipdb
+noremap <F12> <esc>A<CR>import ipdb; ipdb.set_trace()<esc>
 
 " Ctrl-P fuzzy file finder
 Plugin 'kien/ctrlp.vim.git'
@@ -290,9 +296,8 @@ Plugin 'pangloss/vim-javascript'
 " (Needs jshint: npm install -g jshint)
 Plugin 'walm/jshint.vim'
 
-" Python-mode for python development
-"TA-Temp disable:Plugin 'klen/python-mode'
-"set nofoldenable
+
+Plugin 'scrooloose/syntastic'
 
 " ==========================================================
 " All of your Plugins must be added before the following line
