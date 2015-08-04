@@ -1,4 +1,4 @@
-My personal dotfiles for linux home folder.
+profcalculus dotfiles for linux home folder.
 
 dependencies
 ------------
