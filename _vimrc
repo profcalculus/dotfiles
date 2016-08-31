@@ -264,6 +264,7 @@ Plugin 'sontek/minibufexpl.vim'
 " Ack search
 Plugin 'mileszs/ack.vim'
 set grepprg=ack " replace the default grep program with ack
+let g:ackprg = 'ag --vimgrep'
 nmap <leader>a <Esc>:Ack!
 
 " Undo history

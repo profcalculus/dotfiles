@@ -1,5 +1,3 @@
-# Theuns Alberts - Current .profile #
-
 # get platform
 platform='unknown'
 unamestr=`uname`
@@ -28,7 +26,7 @@ if [ $platform == "osx" ]; then
 fi
 
 # Setting PATH for Python 2.7
-# The orginal version is saved in .profile.pysave
+# The original version is saved in .profile.pysave
 PATH="/Library/Frameworks/Python.framework/Versions/2.7/bin:${PATH}"
 export PATH
 
