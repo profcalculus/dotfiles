@@ -2,4 +2,8 @@
 	email = charles@ska.ac.za
 	name = Charles de Villiers
 [push]
-	default = simple
+    default = simple
+[diff]
+    tool = vimdiff2
+[difftool]
+	prompt = false

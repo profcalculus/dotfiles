@@ -1,0 +1,33 @@
+alias node=nodejs
+
+create_rsync_aliases(){
+    local RSYNC="rsync -avzghip --progress --skip-compress=gz,tgz,zip,jpg,bz2"
+    local LOGD="--log-file /var/log/rsync"
+    alias rsync_copy="${RSYNC} ${LOGD}_copy.log"
+    alias rsync_move="${RSYNC} --remove-source-files ${LOGD}_move.log"
+}
+
+create_rsync_aliases
+
+alias ack="ack-grep --python"
+alias katlog='cd /var/kat/log'
+alias katlog='cd /var/kat/nodeman'
+alias ntests='nosetests -s --nologcapture'
+alias pippup='pip install . -U --no-deps'
+alias ffv='kat-search.py -b ~/svn'
+alias ffd='kat-search.py -b ~/develop'
+alias vpy='gvim -pR `find . -name "*.py"`'
+alias j='autojump'
+
+alias gvim='/usr/bin/gvim --servername CACOPHONIX --remote-tab-silent'
+
+alias ar1_portal='ssh portal.mkat.karoo.kat.ac.za'
+alias ar1_proxy='ssh proxy.mkat.karoo.kat.ac.za'
+alias ar1_monctl='ssh monctl.mkat.karoo.kat.ac.za'
+
+
+alias rts_proxy='ssh proxy.mkat-rts.karoo.kat.ac.za'
+alias rts_monctl='ssh monctl.mkat-rts.karoo.kat.ac.za'
+alias devcc='ssh devcc'
+export PYTHON_DIST_PKGS=/usr/local/lib/python2.7/dist-packages/
+alias ff=kat-search.py

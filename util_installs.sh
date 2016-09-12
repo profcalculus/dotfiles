@@ -8,3 +8,6 @@ sudo apt-get install silversearcher-ag
 sudo apt-get install ctags
 sudo apt-get install npm
 sudo apt-get install multitail
+sudo apt-get install cscope
+sudo pip install pycscope
+sudo pip install nosecomplete
