@@ -30,4 +30,7 @@ alias rts_proxy='ssh proxy.mkat-rts.karoo.kat.ac.za'
 alias rts_monctl='ssh monctl.mkat-rts.karoo.kat.ac.za'
 alias devcc='ssh devcc'
 export PYTHON_DIST_PKGS=/usr/local/lib/python2.7/dist-packages/
-alias ff=kat-search.py
+alias ff="kat-search.py"
+alias ffv="kat-search.py -b ~/svn"
+alias ffd="kat-search.py -b ~/develop"
+
